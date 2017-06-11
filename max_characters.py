@@ -15,8 +15,8 @@ def f(n):
         c[k] = x
         d[k] = case
 
-    return c[n]
-    #print("n = " + str(n) + ", max chars: " + str(c[n]))
+    #return c[n]
+    print("n = " + str(n) + ", max chars: " + str(c[n]))
     k = n
 
     while k > 0:
@@ -25,7 +25,7 @@ def f(n):
             k-=1
         else:
             case = d[k]
-            for _ in xrange(case-1):
+            for _ in range(case-1):
                 print(str(k) +". Paste selection")
                 k-=1
             print(str(k) +". Copy selection")
@@ -33,8 +33,9 @@ def f(n):
             print(str(k) +". Select all")
             k-=1
 
-for _ in range(0, 1000000, 10000):
-    t0 = time.time()
-    f(_)
-    t1 = time.time()
-    print(str(_) + ", " + str(round(t1-t0, 3)))
+def time():
+    for _ in range(0, 1000000, 10000):
+        t0 = time.time()
+        f(_)
+        t1 = time.time()
+        print(str(_) + ", " + str(round(t1-t0, 3)))
