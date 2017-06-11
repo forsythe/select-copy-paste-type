@@ -1,8 +1,6 @@
-count = 1
+import time
 
 def f(n):
-    global count
-    count = 1
     c = ([0, 1, 2, 3, 4] + [0]*(n+1-5))
     d = [0]*(n+1)   #tracks which case we choose
         
@@ -17,8 +15,8 @@ def f(n):
         c[k] = x
         d[k] = case
 
-    #return c[n]
-    print("n = " + str(n) + ", max chars: " + str(c[n]))
+    return c[n]
+    #print("n = " + str(n) + ", max chars: " + str(c[n]))
     k = n
 
     while k > 0:
@@ -35,3 +33,8 @@ def f(n):
             print(str(k) +". Select all")
             k-=1
 
+for _ in range(0, 1000000, 10000):
+    t0 = time.time()
+    f(_)
+    t1 = time.time()
+    print(str(_) + ", " + str(round(t1-t0, 3)))
